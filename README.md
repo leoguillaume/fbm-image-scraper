@@ -33,7 +33,7 @@ This script is suitable for both format. It doesn't work with yourself or if you
 
 * The first way, you directly run the script with the `main.py` file in your terminal: `python3 main.py`
 
-* The second way is to execute the `fbm-scraper` function in the `fbm-scraper.py` file.
+* The second way, you execute the `fbm-scraper` function in the `fbm-scraper.py` file.
 ```
 Parameters
 ----------
