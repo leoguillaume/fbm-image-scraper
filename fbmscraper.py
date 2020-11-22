@@ -25,17 +25,14 @@ def fbm_scraper(client, thread_id, outpath, gif = True):
 
     """
 
-    try:
-        int(thread_id)
-    except ValueError:
+    if not thread_id.isnumeric(): # If the id isn't numbers, the user id have to be find
         users = client.searchForUsers(thread_id)
+        thread_id = None
         for u in users:
                 if u.is_friend:
                     answer = input(f"Connection with {u.first_name} {u.last_name} ? y/n\n")
                     if answer.lower() == 'y' or answer.lower() == 'yes':
                         thread_id = u.uid
-                    else:
-                        thread_id = None
 
     if thread_id == None:
         print('The messenger chat cannot be found.')
@@ -54,28 +51,29 @@ def fbm_scraper(client, thread_id, outpath, gif = True):
             print("Images can't save because a output folder for this chat already exist.")
             return
         else:
-             os.mkdir(outpath)
+             os.mkdir(outpath) # create a directory with the thread_id as name
 
         print('Initialization...')
         images = client.fetchThreadImages(thread_id)
         attachments = list(images)
 
-        print(f"{len(attachments)} objects find.")
+        print(f"{len(attachments)} objects find.") # attachments are images and videos
 
-        i, e, v = 0, 0, 0
+        i, e, g, v = 0, 0, 0, 0
 
         for a in tqdm(attachments):
 
-            if type(a) == fbchat._file.VideoAttachment:
+            if type(a) == fbchat._file.VideoAttachment: # Ignore videos
                 v += 1
                 continue
 
-            if gif == False and re.search(r".gif\?", a.large_preview_url) != None:
+            if gif == False and re.search(r".gif\?", a.large_preview_url) != None: # Ignore gifs
+                g += 1
                 continue
 
             else:
                 try:
-                    urllib.request.urlretrieve(a.large_preview_url, os.path.join(outpath, str(i) + '.jpg'))
+                    urllib.request.urlretrieve(a.large_preview_url, os.path.join(outpath, str(i) + '.jpg')) # large_preview_url is the highest resolution
                     i += 1
 
                 except HTTPError:
@@ -83,4 +81,4 @@ def fbm_scraper(client, thread_id, outpath, gif = True):
 
         print(f"{i} images have been saved.\n"
               f"{e} ressources have been permanently deleted by Facebook.\n"
-              f"{v} videos have been ignored.")
+              f"{v} videos and {g} gifs have been ignored.")
