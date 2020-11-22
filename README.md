@@ -4,7 +4,7 @@ A python script to bulk download pictures from your Facebook Messenger account f
 
 ## Warning
 
-  ** This script use [fbchat](https://fbchat.readthedocs.io/en/stable/index.html) library. As mentioned in the documentation, mass requests to the Facebook servers can ban your Facebook account. This doesn't seem to be the case with this script (I downloaded several thousands of images on different groups in the same day without any problem). Anyway be careful, I am not responsible for the use of this scri> qsdfpt.
+> This script use [fbchat](https://fbchat.readthedocs.io/en/stable/index.html) library. As mentioned in the documentation, mass requests to the Facebook servers can ban your Facebook account. This doesn't seem to be the case with this script (I downloaded several thousands of images on different groups in the same day without any problem). Anyway be careful, I am not responsible for the use of this scri> qsdfpt.
 
 ## Configuration
 
@@ -31,10 +31,9 @@ The number of retrievable photos depends on your seniority in the group.
 1. Install python packages in your terminal: `pip install -r requirements.txt`
 2. Two way to run the scraper:
 
-2.1. The first way, you directly run the script with the `main.py` file in your terminal: `python3 main.py`
+* The first way, you directly run the script with the `main.py` file in your terminal: `python3 main.py`
 
-2.2. The second way is to execute the `fbm-scraper` function in the `fbm-scraper.py` file.
-
+* The second way is to execute the `fbm-scraper` function in the `fbm-scraper.py` file.
 ```
 Parameters
 ----------
@@ -49,4 +48,4 @@ out_path: str
 
 gif: bool, default=True
     If True, save gif attachments.
-```
+`> `
