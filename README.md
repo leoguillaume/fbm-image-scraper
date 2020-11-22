@@ -29,7 +29,7 @@ This script is suitable for both format. It doesn't work with yourself or if you
 ## Execution
 
 1. Install python packages in your terminal: `pip install -r requirements.txt`
-2. Two way to run the scraper:
+2. Two ways to run the scraper:
 
 * The first way, you directly run the script with the `main.py` file in your terminal: `python3 main.py`
 
