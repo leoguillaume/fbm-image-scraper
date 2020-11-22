@@ -19,8 +19,8 @@ Create a `config.ini` file as in the `example-config.ini`.
 
 A thread is a messenger chat for fbchat library. The id of the thread (group or a specific friend) is in the url of the messenger chat. There are two format of id (numbers or name):
 
-![image](https://github.com/leoguillaume/fbm-image-scraper/readme-assets/screenshot-1.png) or
-![image](https://github.com/leoguillaume/fbm-image-scraper/readme-assets/screenshot-2.png)
+![](https://github.com/leoguillaume/fbm-image-scraper/blob/master/readme-assets/screenshot-1.png) or
+![](https://github.com/leoguillaume/fbm-image-scraper/blob/master/readme-assets/screenshot-2.png)
 
 The number of retrievable photos depends on your seniority in the group.
 
