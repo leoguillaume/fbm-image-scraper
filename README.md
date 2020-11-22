@@ -15,7 +15,7 @@ Create a `config.ini` file as in the `example-config.ini`.
 - `[Credentials][email]`: Your FB account email used for authentication.
 - `[Credentials][password]`: Your FB account password used for authentication.
 - `[Credentials][user-agent]`: Your user agent. You can get it by typing "what is my user agent" in google.
-- `[hTread][id]`: The URL to your friend's or your group.
+- `[Thread][id]`: The URL to your friend's or your group.
 
 A thread is a messenger chat for fbchat library. The ID of the thread (group or a specific friend) is in the url of the messenger chat. There are two format of ID (numbers or name):
 

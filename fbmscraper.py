@@ -51,7 +51,7 @@ def fbm_scraper(client, thread_id, outpath, gif = True):
             print("Images can't save because a output folder for this chat already exist.")
             return
         else:
-             os.mkdir(outpath) # create a directory with the thread_id as name
+             os.mkdir(outpath) # Create a directory with the thread_id as name
 
         print('Initialization...')
         images = client.fetchThreadImages(thread_id)
