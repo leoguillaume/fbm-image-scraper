@@ -15,14 +15,14 @@ Create a `config.ini` file as in the `example-config.ini`.
 - `[Credentials][email]`: Your FB account email used for authentication.
 - `[Credentials][password]`: Your FB account password used for authentication.
 - `[Credentials][user-agent]`: Your user agent. You can get it by typing "what is my user agent" in google.
-- `[Thread][id]`: The URL to your friend's or your group.
+- `[Thread][id]`: The URL to your friend or your group.
 
-A thread is a messenger chat for fbchat library. The ID of the thread (group or a specific friend) is in the url of the messenger chat. There are two format of ID (numbers or name):
+A thread is a messenger chat for fbchat library. The ID of the thread (group or a specific person) is in the url of the messenger chat. There are two formats of ID (numbers or name):
 
 ![](https://github.com/leoguillaume/fbm-image-scraper/blob/master/readme-assets/screenshot-1.png) or
 ![](https://github.com/leoguillaume/fbm-image-scraper/blob/master/readme-assets/screenshot-2.png)
 
-This script is suitable for both format. It doesn't work with yourself or if you aren't friends with the person who has the ID. The number of retrievable photos depends on your seniority in the messenger group.
+This script is suitable for both formats. It doesn't work with yourself or if you aren't friends with the person who has the ID. The number of retrievable photos depends on your seniority in the messenger group.
 
 - `[Download][path]`: Local target path for the images to be downloaded to.
 
@@ -49,3 +49,7 @@ out_path: str
 gif: bool, default=True
     If True, save gif attachments.
 ```
+Remember to run this line before instanciate the fbchat client : <br>
+`fbchat._state.FB_DTSG_REGEX = re.compile(r'"name":"fb_dtsg","value":"(.*?)"')`
+
+It fix the following issue : https://github.com/fbchat-dev/fbchat/issues/615
