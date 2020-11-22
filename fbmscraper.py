@@ -32,7 +32,7 @@ def fbm_scraper(client, thread_id, outpath, gif = True):
         for u in users:
                 if u.is_friend:
                     answer = input(f"Connection with {u.first_name} {u.last_name} ? y/n\n")
-                    if answer.lower() == 'y' or  answer.lower() == 'yes':
+                    if answer.lower() == 'y' or answer.lower() == 'yes':
                         thread_id = u.uid
                     else:
                         thread_id = None
