@@ -1,0 +1,5 @@
+__pycache__
+config.ini
+.ipynb_checkpoints
+draft.ipynb
+.DS_Store
