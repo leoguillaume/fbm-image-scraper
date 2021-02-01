@@ -8,14 +8,22 @@ A python script to bulk download pictures from your Facebook Messenger account f
 
 ## Configuration
 
-Create a `config.ini` file as in the `example-config.ini`.
+Create a `config.ini` file as in the `example-config.ini` to setup local variables.
 
 ### Key-value pairs
 
-- `[Credentials][email]`: Your FB account email used for authentication.
-- `[Credentials][password]`: Your FB account password used for authentication.
-- `[Credentials][user-agent]`: Your user agent. You can get it by typing "what is my user agent" in google.
-- `[Thread][id]`: The URL to your friend or your group.
+- `[Local][path]`: Local target path for the images to be downloaded to.
+- `[Local][user-agent]`: Your user agent. You can get it by typing "what is my user agent" in google.
+
+## Execution
+
+1. Install python packages in your terminal: `pip install -r requirements.txt`
+
+2. Run fbmscraper.py with python3
+
+Command line: `python3 fbmscraper.py <thread_id> <email>
+
+`tread_id`:
 
 A thread is a messenger chat for fbchat library. The ID of the thread (group or a specific person) is in the url of the messenger chat. There are two formats of ID (numbers or name):
 
@@ -24,32 +32,4 @@ A thread is a messenger chat for fbchat library. The ID of the thread (group or 
 
 This script is suitable for both formats. It doesn't work with yourself or if you aren't friends with the person who has the ID. The number of retrievable photos depends on your seniority in the messenger group.
 
-- `[Download][path]`: Local target path for the images to be downloaded to.
-
-## Execution
-
-1. Install python packages in your terminal: `pip install -r requirements.txt`
-2. Two ways to run the scraper:
-
-* The first way, you directly run the script with the `main.py` file in your terminal: `python3 main.py`
-
-* The second way, you execute the `fbm-scraper` function in the `fbm-scraper.py` file.
-```
-Parameters
-----------
-client:
-    fbchat._client.Client object.
-
-messenger_id: str
-    Messenger friend id or messenger group id.
-
-out_path: str
-    Directory path to save attachments.
-
-gif: bool, default=True
-    If True, save gif attachments.
-```
-Remember to run this line before instanciate the fbchat client : <br>
-`fbchat._state.FB_DTSG_REGEX = re.compile(r'"name":"fb_dtsg","value":"(.*?)"')`
-
-It fix the following issue : https://github.com/fbchat-dev/fbchat/issues/615
+`email`: your facebook account email

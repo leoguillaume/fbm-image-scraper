@@ -1,13 +1,16 @@
-import re, urllib.request, os, fbchat
+import re, urllib.request, os, fbchat, configparser, argparse, getpass
+
 from fbchat import Client
 from fbchat.models import *
 from urllib.error import *
 from tqdm import tqdm
 
+from fbmscraper import *
+
 def fbm_scraper(client, thread_id, outpath, gif = True):
 
     """
-    Scrape and save image from a facebook messenger chat.
+    Scrape and save images from a facebook messenger chat.
 
     Parameters
     ----------
@@ -82,3 +85,20 @@ def fbm_scraper(client, thread_id, outpath, gif = True):
         print(f"{i} images have been saved.\n"
               f"{e} ressources have been permanently deleted by Facebook.\n"
               f"{v} videos and {g} gifs have been ignored.")
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='''Scraper for images from facebook messenger''')
+    parser.add_argument('thread_id', help='messenger thread id', nargs='?')
+    parser.add_argument('email', help='facebook account email', nargs='?')
+    parser.add_argument('password', help='facebook account password', nargs='?')
+    args = parser.parse_args()
+    password = getpass.getpass()
+
+    fbchat._state.FB_DTSG_REGEX = re.compile(r'"name":"fb_dtsg","value":"(.*?)"')
+    config = configparser.ConfigParser()
+    config.read('config.ini')
+    user_agent = config.get('Local','user_agent')
+    outpath = config.get('Local', 'path')
+    client = Client(email = args.email, password = password, user_agent = user_agent)
+    fbm_scraper(client, args.thread_id, outpath, gif = False)
