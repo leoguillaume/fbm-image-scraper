@@ -21,7 +21,7 @@ Create a `config.ini` file as in the `example-config.ini` to setup local variabl
 
 2. Run fbmscraper.py with python3
 
-Command line: `python3 fbmscraper.py <thread_id> <email>
+Command line: `python3 fbmscraper.py <thread_id> <email>``
 
 `tread_id`:
 
